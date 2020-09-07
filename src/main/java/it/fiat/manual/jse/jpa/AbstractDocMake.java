@@ -7,6 +7,12 @@ public abstract class AbstractDocMake {
 
 	private String description;
 
+	public AbstractDocMake(int id, String brandCode, String description) {
+		this.id = id;
+		this.brandCode = brandCode;
+		this.description = description;
+	}
+
 	// Property accessors
 
 	public void setDescription(String description) {
