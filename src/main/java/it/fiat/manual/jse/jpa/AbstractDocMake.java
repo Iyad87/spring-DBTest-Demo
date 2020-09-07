@@ -1,6 +1,6 @@
 package it.fiat.manual.jse.jpa;
 
-public abstract class AbstractDocMAke {
+public abstract class AbstractDocMake {
 
 	private int id;
 	private String brandCode;
@@ -35,7 +35,7 @@ public abstract class AbstractDocMAke {
 
 	@Override
 	public String toString() {
-		return "\nAbstractFiatMake [brandCode=" + brandCode + ", description="
+		return "\n FiatMake [brandCode=" + brandCode + ", description="
 				+ description + "]";
 	}
 

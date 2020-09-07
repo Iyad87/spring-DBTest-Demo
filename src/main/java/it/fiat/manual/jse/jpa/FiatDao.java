@@ -12,8 +12,8 @@ public class FiatDao {
 		jdbcConnection = connection;
 	}
 
-	public FiatDocModel getBook(int id) {
-		FiatDocModel fiatDocModel = null;
+	public FiatDocMake getBook(int id) {
+		FiatDocMake fiatDocMake = null;
 		String sql = "SELECT * FROM fiatDocModel WHERE id = ?";
 
 		try {
@@ -26,7 +26,7 @@ public class FiatDao {
 				String brandCode = resultSet.getString("brandCode");
 				String description = resultSet.getString("description");
 
-				 fiatDocModel = new FiatDocModel(id, brandCode, description);
+				fiatDocMake = new FiatDocMake(id, brandCode, description);
 			}
 
 			resultSet.close();
@@ -35,11 +35,11 @@ public class FiatDao {
 			e.printStackTrace();
 		}
 
-		return fiatDocModel;
+		return fiatDocMake;
 	}
 
-	public ArrayList<FiatDocModel> listAllBooks() {
-		ArrayList<FiatDocModel> listBook = new ArrayList<>();
+	public ArrayList<FiatDocMake> listAllBooks() {
+		ArrayList<FiatDocMake> listBook = new ArrayList<>();
 
 		String sql = "SELECT * FROM fiatDocModel";
 
@@ -53,8 +53,8 @@ public class FiatDao {
 				String brandCode = resultSet.getString("brandCode");
 				String description = resultSet.getString("description");
 
-				FiatDocModel fiatDocModel = new FiatDocModel(id, brandCode, description);
-				listBook.add(fiatDocModel);
+				FiatDocMake fiatDocMake = new FiatDocMake(id, brandCode, description);
+				listBook.add(fiatDocMake);
 			}
 
 			resultSet.close();
@@ -65,13 +65,13 @@ public class FiatDao {
 		return listBook;
 	}
 
-	public boolean insertBook(FiatDocModel fiatDocModel)  {
+	public boolean insertBook(FiatDocMake fiatDocMake)  {
 		String sql = "INSERT INTO book (title, author, price) VALUES (?, ?, ?)";
 
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-			statement.setString(1, fiatDocModel.getBrandCode());
-			statement.setString(2, fiatDocModel.getDescription());
+			statement.setString(1, fiatDocMake.getBrandCode());
+			statement.setString(2, fiatDocMake.getDescription());
 
 			boolean rowInserted = statement.executeUpdate() > 0;
 			statement.close();
@@ -83,14 +83,14 @@ public class FiatDao {
 		return false;
 	}
 
-	public void updateBook(FiatDocModel fiatDocModel){
+	public void updateBook(FiatDocMake fiatDocMake){
 		String sql = "UPDATE book SET title = ?, author = ?, price = ? WHERE id = ?";
 
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-			statement.setString(1, fiatDocModel.getBrandCode());
-			statement.setString(2, fiatDocModel.getDescription());
-			statement.setInt(4, fiatDocModel.getId());
+			statement.setString(1, fiatDocMake.getBrandCode());
+			statement.setString(2, fiatDocMake.getDescription());
+			statement.setInt(4, fiatDocMake.getId());
 
 			int result = statement.executeUpdate();
 			statement.close();
