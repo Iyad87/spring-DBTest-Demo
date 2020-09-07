@@ -1,5 +1,8 @@
 package it.fiat.manual.jse.jpa;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public abstract class AbstractDocMake {
 
 	private int id;
@@ -11,6 +14,10 @@ public abstract class AbstractDocMake {
 		this.id = id;
 		this.brandCode = brandCode;
 		this.description = description;
+	}
+
+	public AbstractDocMake() {
+
 	}
 
 	// Property accessors

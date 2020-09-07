@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Service;
 
 import it.fiat.manual.jse.jpa.FiatDocMake;
-
 @Service
 public class FiatMakeRepo extends AbstractRepo<FiatDocMake> {
 

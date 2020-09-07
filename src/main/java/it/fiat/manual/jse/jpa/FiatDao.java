@@ -66,7 +66,7 @@ public class FiatDao {
 	}
 
 	public boolean insertFiatMode(FiatDocMake fiatDocMake)  {
-		String sql = "INSERT INTO book (title, author, price) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO fiatDocMake (brandCode, description) VALUES (?, ?, ?)";
 
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
