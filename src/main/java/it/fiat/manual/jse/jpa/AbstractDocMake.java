@@ -14,10 +14,6 @@ public abstract class AbstractDocMake {
 		this.description = description;
 	}
 
-	public AbstractDocMake() {
-
-	}
-
 	// Property accessors
 
 	public void setDescription(String description) {

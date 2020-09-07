@@ -26,7 +26,7 @@ public class FiatDao {
 				String brandCode = resultSet.getString("brandCode");
 				String description = resultSet.getString("description");
 
-				fiatDocMake = new FiatDocMake(id, brandCode, description);
+				fiatDocMake = new FiatDocMake(brandCode, description);
 			}
 
 			resultSet.close();
@@ -53,7 +53,7 @@ public class FiatDao {
 				String brandCode = resultSet.getString("brandCode");
 				String description = resultSet.getString("description");
 
-				FiatDocMake fiatDocMake = new FiatDocMake(id, brandCode, description);
+				FiatDocMake fiatDocMake = new FiatDocMake(brandCode, description);
 				listBook.add(fiatDocMake);
 			}
 
