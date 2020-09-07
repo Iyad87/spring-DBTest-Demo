@@ -90,7 +90,6 @@ public class FiatDao {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 			statement.setString(1, fiatDocMake.getBrandCode());
 			statement.setString(2, fiatDocMake.getDescription());
-			statement.setInt(4, fiatDocMake.getId());
 
 			int result = statement.executeUpdate();
 			statement.close();

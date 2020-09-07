@@ -5,13 +5,11 @@ import org.springframework.stereotype.Service;
 @Service
 public abstract class AbstractDocMake {
 
-	private int id;
 	private String brandCode;
 
 	private String description;
 
-	public AbstractDocMake(int id, String brandCode, String description) {
-		this.id = id;
+	public AbstractDocMake( String brandCode, String description) {
 		this.brandCode = brandCode;
 		this.description = description;
 	}
@@ -38,13 +36,7 @@ public abstract class AbstractDocMake {
 		return brandCode;
 	}
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	@Override
 	public String toString() {
