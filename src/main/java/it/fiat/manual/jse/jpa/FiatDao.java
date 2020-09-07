@@ -12,7 +12,7 @@ public class FiatDao {
 		jdbcConnection = connection;
 	}
 
-	public FiatDocMake getBook(int id) {
+	public FiatDocMake getFiatMode(int id) {
 		FiatDocMake fiatDocMake = null;
 		String sql = "SELECT * FROM fiatDocModel WHERE id = ?";
 
@@ -38,7 +38,7 @@ public class FiatDao {
 		return fiatDocMake;
 	}
 
-	public ArrayList<FiatDocMake> listAllBooks() {
+	public ArrayList<FiatDocMake> getAll() {
 		ArrayList<FiatDocMake> listBook = new ArrayList<>();
 
 		String sql = "SELECT * FROM fiatDocModel";
@@ -65,7 +65,7 @@ public class FiatDao {
 		return listBook;
 	}
 
-	public boolean insertBook(FiatDocMake fiatDocMake)  {
+	public boolean insertFiatMode(FiatDocMake fiatDocMake)  {
 		String sql = "INSERT INTO book (title, author, price) VALUES (?, ?, ?)";
 
 		try {
@@ -83,7 +83,7 @@ public class FiatDao {
 		return false;
 	}
 
-	public void updateBook(FiatDocMake fiatDocMake){
+	public void updateFiatMode(FiatDocMake fiatDocMake){
 		String sql = "UPDATE book SET title = ?, author = ?, price = ? WHERE id = ?";
 
 		try {
@@ -99,7 +99,7 @@ public class FiatDao {
 		}
 	}
 
-	public void deleteBook(int id) {
+	public void deleteFiatMode(int id) {
 		String sql = "DELETE FROM fiatDocModel WHERE id = ?";
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
