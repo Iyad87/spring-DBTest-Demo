@@ -84,7 +84,7 @@ public class FiatDao {
 	}
 
 	public void updateFiatMode(FiatDocMake fiatDocMake){
-		String sql = "UPDATE book SET title = ?, author = ?, price = ? WHERE id = ?";
+		String sql = "UPDATE fiatDocMake SET brandCode = ?, description = ?,  WHERE id = ?";
 
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
