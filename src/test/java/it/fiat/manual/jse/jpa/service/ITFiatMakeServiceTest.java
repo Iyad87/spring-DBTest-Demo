@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +20,7 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 
 //import it.fiat.manual.jse.jpa.DBConnection;
+import it.fiat.manual.jse.jpa.FiatDao;
 import it.fiat.manual.jse.jpa.FiatDocMake;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.hasProperty;
@@ -32,6 +35,15 @@ import static org.junit.Assert.*;
 public class ITFiatMakeServiceTest {
 
 
+	private FiatDao fiatDao;
 
 
+
+	@Test
+	@DatabaseSetup("make.xml")
+	public void testFind() throws Exception {
+		List<FiatDocMake> aList = this.fiatDao.getAll();
+		assertEquals(1, aList.size());
+		assertEquals("FIAT", aList.get(0).getDescription());
+	}
 }
