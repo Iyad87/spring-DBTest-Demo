@@ -38,6 +38,6 @@ public class ITFiatMakeServiceTest {
 
 		List<FiatDocMake> aList = fiatDao.getAll();
 		assertEquals(3, aList.size());
-		assertEquals("FIAT ", aList.get(0).getDescription());
+		assertEquals("FIAT                                    ", aList.get(0).getDescription());
 	}
 }
