@@ -6,7 +6,7 @@ public class FiatDocMake {
 
 	private String description;
 
-	public FiatDocMake( String brandCode, String description) {
+	public FiatDocMake(String brandCode, String description) {
 		this.brandCode = brandCode;
 		this.description = description;
 	}
@@ -28,7 +28,6 @@ public class FiatDocMake {
 	public String getBrandCode() {
 		return brandCode;
 	}
-
 
 
 	@Override
