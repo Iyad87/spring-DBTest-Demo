@@ -41,7 +41,7 @@ public class FiatDao {
 	public ArrayList<FiatDocMake> getAll() {
 		ArrayList<FiatDocMake> listFiatMake = new ArrayList<>();
 
-		String sql = "SELECT * FROM fiatDocModel";
+		String sql = "SELECT * FROM make";
 
 		try {
 			Statement statement = jdbcConnection.createStatement();
@@ -66,7 +66,7 @@ public class FiatDao {
 	}
 
 	public boolean insertFiatMode(FiatDocMake fiatDocMake)  {
-		String sql = "INSERT INTO fiatDocMake (brandCode, description) VALUES (?, ?)";
+		String sql = "INSERT INTO make (brandCode, description) VALUES (?, ?)";
 
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
@@ -84,7 +84,7 @@ public class FiatDao {
 	}
 
 	public void updateFiatMode(FiatDocMake fiatDocMake){
-		String sql = "UPDATE fiatDocMake SET brandCode = ?, description = ?,  WHERE id = ?";
+		String sql = "UPDATE fiatDocMake SET brandCode = ?, description = ?,  WHERE brandCode = ?";
 
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
@@ -98,11 +98,11 @@ public class FiatDao {
 		}
 	}
 
-	public void deleteFiatMode(int id) {
-		String sql = "DELETE FROM fiatDocModel WHERE id = ?";
+	public void deleteFiatMode(String brandCode) {
+		String sql = "DELETE FROM make WHERE brandCode = ?";
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-			statement.setInt(1, id);
+			statement.setString(1, brandCode);
 			statement.executeUpdate();
 			statement.close();
 		} catch (SQLException e) {
