@@ -6,15 +6,14 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 @Repository
 public class FiatDao {
 
-	@Autowired
 	private DataSource dataSource;
-
 
 	public FiatDao(DataSource dataSource) throws SQLException {
 		this.dataSource = dataSource;

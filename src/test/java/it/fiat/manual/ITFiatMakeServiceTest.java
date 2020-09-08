@@ -1,4 +1,4 @@
-package it.fiat.manual.jse.jpa.service;
+package it.fiat.manual;
 
 import java.sql.Connection;
 import java.util.List;
@@ -44,23 +44,16 @@ import static org.junit.Assert.*;
 })
 public class ITFiatMakeServiceTest {
 
+
 	@Autowired
 	private FiatDao fiatDao;
 
-	@Autowired
-	DataSource dataSource;
-
-	@Bean
-	public DataSource dataSource() {
-		return Mockito.mock(DataSource.class);
-	}
-
 	@Test
-	@DatabaseSetup("make.xml")
+    @DatabaseSetup("make.xml")
 	public void testFind() throws Exception {
 
-		List<FiatDocMake> aList = this.fiatDao.getAll();
+		List<FiatDocMake> aList = fiatDao.getAll();
 		assertEquals(3, aList.size());
-		assertEquals("FIAT", aList.get(0).getDescription());
+     	assertEquals("FIAT ", aList.get(0).getDescription());
 	}
 }
