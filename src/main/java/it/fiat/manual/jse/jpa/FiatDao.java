@@ -50,8 +50,8 @@ public class FiatDao {
 
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
-				String brandCode = resultSet.getString("brandCode");
-				String description = resultSet.getString("description");
+				String brandCode = resultSet.getString("ID");
+				String description = resultSet.getString("NAME");
 
 				FiatDocMake fiatDocMake = new FiatDocMake(brandCode, description);
 				listFiatMake.add(fiatDocMake);
@@ -66,16 +66,16 @@ public class FiatDao {
 	}
 
 	public boolean insertFiatMode(FiatDocMake fiatDocMake)  {
-		String sql = "INSERT INTO make (brandCode, description) VALUES (?, ?)";
+		String sql = "INSERT INTO make (ID, NAME) VALUES (?, ?)";
 
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 			statement.setString(1, fiatDocMake.getBrandCode());
 			statement.setString(2, fiatDocMake.getDescription());
 
-			boolean rowInserted = statement.executeUpdate() > 0;
+//			boolean rowInserted = statement.executeUpdate() > 0;
 			statement.close();
-			return rowInserted;
+//			return rowInserted;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -84,7 +84,7 @@ public class FiatDao {
 	}
 
 	public void updateFiatMode(FiatDocMake fiatDocMake){
-		String sql = "UPDATE fiatDocMake SET brandCode = ?, description = ?,  WHERE brandCode = ?";
+		String sql = "UPDATE fiatDocMake SET ID = ?, description = ?,  WHERE ID = ?";
 
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
