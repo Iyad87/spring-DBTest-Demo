@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-@Service
+@Repository
 public class FiatDao {
 
-
+	@Autowired
 	private DataSource dataSource;
 
 
@@ -54,6 +55,7 @@ public class FiatDao {
 		String sql = "SELECT * FROM make";
 
 		try {
+
 			Statement statement = jdbcConnection.createStatement();
 
 			ResultSet resultSet = statement.executeQuery(sql);

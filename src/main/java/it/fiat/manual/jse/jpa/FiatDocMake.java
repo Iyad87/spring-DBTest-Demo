@@ -1,8 +1,40 @@
 package it.fiat.manual.jse.jpa;
 
-public class FiatDocMake extends AbstractDocMake {
+public class FiatDocMake {
 
-	public FiatDocMake(String brandCode, String description) {
-		super(brandCode, description);
+	private String brandCode;
+
+	private String description;
+
+	public FiatDocMake( String brandCode, String description) {
+		this.brandCode = brandCode;
+		this.description = description;
 	}
+
+	// Property accessors
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setBrandCode(String brandCode) {
+		this.brandCode = brandCode;
+	}
+
+	public String getBrandCode() {
+		return brandCode;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "\n FiatMake [brandCode=" + brandCode + ", description="
+				+ description + "]";
+	}
+
 }
