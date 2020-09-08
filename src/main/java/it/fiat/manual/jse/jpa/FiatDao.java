@@ -66,16 +66,16 @@ public class FiatDao {
 	}
 
 	public boolean insertFiatMode(FiatDocMake fiatDocMake)  {
-		String sql = "INSERT INTO make (ID, NAME) VALUES (?, ?)";
+		String sql = "INSERT INTO make ( ID, NAME , RT_ID) VALUES (?, ? ,?)";
 
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 			statement.setString(1, fiatDocMake.getBrandCode());
 			statement.setString(2, fiatDocMake.getDescription());
-
-//			boolean rowInserted = statement.executeUpdate() > 0;
+            statement.setInt(3,50);
+			boolean rowInserted = statement.executeUpdate() > 0;
 			statement.close();
-//			return rowInserted;
+		return rowInserted;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -84,7 +84,7 @@ public class FiatDao {
 	}
 
 	public void updateFiatMode(FiatDocMake fiatDocMake){
-		String sql = "UPDATE fiatDocMake SET ID = ?, description = ?,  WHERE ID = ?";
+		String sql = "UPDATE make SET ID = ?, description = ?,  WHERE ID = ?";
 
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
