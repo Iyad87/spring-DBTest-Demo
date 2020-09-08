@@ -39,7 +39,7 @@ public class FiatDao {
 	}
 
 	public ArrayList<FiatDocMake> getAll() {
-		ArrayList<FiatDocMake> listBook = new ArrayList<>();
+		ArrayList<FiatDocMake> listFiatMake = new ArrayList<>();
 
 		String sql = "SELECT * FROM fiatDocModel";
 
@@ -54,7 +54,7 @@ public class FiatDao {
 				String description = resultSet.getString("description");
 
 				FiatDocMake fiatDocMake = new FiatDocMake(brandCode, description);
-				listBook.add(fiatDocMake);
+				listFiatMake.add(fiatDocMake);
 			}
 
 			resultSet.close();
@@ -62,11 +62,11 @@ public class FiatDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return listBook;
+		return listFiatMake;
 	}
 
 	public boolean insertFiatMode(FiatDocMake fiatDocMake)  {
-		String sql = "INSERT INTO fiatDocMake (brandCode, description) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO fiatDocMake (brandCode, description) VALUES (?, ?)";
 
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);

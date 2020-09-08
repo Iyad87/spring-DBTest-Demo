@@ -26,6 +26,7 @@ public class Application implements CommandLineRunner {
 	private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 
 	private FiatDao fiatDao;
+
 	@Autowired
 	DataSource dataSource;
 
