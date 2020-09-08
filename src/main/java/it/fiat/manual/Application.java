@@ -24,26 +24,22 @@ import it.fiat.manual.jse.jpa.FiatDocMake;
 public class Application implements CommandLineRunner {
 
 	private static final Logger LOG = LoggerFactory.getLogger(Application.class);
-
+	@Autowired
 	private FiatDao fiatDao;
 
-	@Autowired
-	DataSource dataSource;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 
 
-
 	@Override
 	public void run(String... args) throws Exception {
 
-		Connection connection = dataSource.getConnection();
-		fiatDao = new FiatDao(connection);
 
-		FiatDocMake fiatDocMake = new FiatDocMake("1", "Fiat");
-		fiatDao.insertFiatMode(fiatDocMake);
+//
+//		FiatDocMake fiatDocMake = new FiatDocMake("11", "FIATETEST");
+//		fiatDao.insertFiatMode(fiatDocMake);
 		List<FiatDocMake> fiatDocMakes = fiatDao.getAll();
 		LOG.info(fiatDocMakes.toString());
 	}
