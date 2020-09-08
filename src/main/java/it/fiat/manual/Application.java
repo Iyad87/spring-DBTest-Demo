@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
+import javax.sql.DataSource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,19 +26,20 @@ public class Application implements CommandLineRunner {
 	private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 
 	private FiatDao fiatDao;
+	@Autowired
+	DataSource dataSource;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Autowired
-	JdbcTemplate jdbcTemplate;
+
 
 	@Override
 	public void run(String... args) throws Exception {
 
-		jdbcTemplate.execute("CREATE TABLE fiatDocMake(" +
-				"brandCode  VARCHAR(255), description VARCHAR(255))");
+		Connection connection = dataSource.getConnection();
+		fiatDao = new FiatDao(connection);
 
 		FiatDocMake fiatDocMake = new FiatDocMake("1", "Fiat");
 		fiatDao.insertFiatMode(fiatDocMake);
