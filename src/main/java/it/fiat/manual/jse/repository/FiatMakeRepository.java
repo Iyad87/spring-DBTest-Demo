@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import it.fiat.manual.jse.model.FiatDocMake;
 
 @Repository
-public class FiatRepository {
+public class FiatMakeRepository {
 
 
 	@Autowired
@@ -43,16 +43,18 @@ public class FiatRepository {
 	}
 
 
-	public boolean insertFiatMode(FiatDocMake fiatDocMake) throws SQLException {
+	public void insertFiatMode(FiatDocMake fiatDocMake) throws SQLException {
 
 		String sql = "INSERT INTO make ( ID, NAME , RT_ID) VALUES (?, ? ,?)";
-		return false;
+		jdbcTemplate.update(sql, new Object[]{fiatDocMake.getBrandCode(), fiatDocMake.getDescription()});
 
 	}
 
 	public void updateFiatMode(FiatDocMake fiatDocMake) {
 
-		String sql = "UPDATE make SET ID = ?, description = ?,  WHERE ID = ?";
+		FiatDocMake fiatDocMake1 = new FiatDocMake(fiatDocMake.getBrandCode(),fiatDocMake.getDescription());
+		String sql = "UPDATE make SET ID = ?, NAME = ?,  WHERE ID = ?";
+		jdbcTemplate.update(sql,fiatDocMake.getBrandCode(),fiatDocMake.getDescription());
 
 
 	}
@@ -60,6 +62,7 @@ public class FiatRepository {
 	public void deleteFiatMode(String brandCode) {
 
 		String sql = "DELETE FROM make WHERE brandCode = ?";
+		jdbcTemplate.update(sql,brandCode);
 
 	}
 

@@ -10,7 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import it.fiat.manual.jse.repository.FiatRepository;
+import it.fiat.manual.jse.repository.FiatMakeRepository;
 import it.fiat.manual.jse.model.FiatDocMake;
 
 @SpringBootApplication
@@ -18,7 +18,7 @@ public class Application implements CommandLineRunner {
 
 	private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 	@Autowired
-	private FiatRepository fiatRepository;
+	private FiatMakeRepository fiatMakeRepository;
 
 
 	public static void main(String[] args) {
@@ -30,7 +30,7 @@ public class Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		List<FiatDocMake> fiatDocMakes = fiatRepository.getAll();
+		List<FiatDocMake> fiatDocMakes = fiatMakeRepository.getAll();
 		LOG.info(fiatDocMakes.toString());
 	}
 
