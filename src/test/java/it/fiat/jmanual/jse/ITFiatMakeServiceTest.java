@@ -1,4 +1,4 @@
-package it.fiat.manual;
+package it.fiat.jmanual.jse;
 
 import java.util.List;
 
@@ -17,7 +17,6 @@ import it.fiat.manual.jse.repository.FiatRepository;
 import it.fiat.manual.jse.model.FiatDocMake;
 import static org.junit.Assert.assertEquals;
 
-//import it.fiat.manual.jse.jpa.DBConnection;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 

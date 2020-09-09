@@ -11,6 +11,8 @@ public class FiatDocMake {
 		this.description = description;
 	}
 
+	public FiatDocMake() {}
+
 	// Property accessors
 
 	public void setDescription(String description) {

@@ -1,12 +1,15 @@
 package it.fiat.manual.jse.repository;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.*;
+import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Repository;
 
 import it.fiat.manual.jse.model.FiatDocMake;
@@ -30,11 +33,15 @@ public class FiatRepository {
 
 	public List<FiatDocMake> getAll() throws SQLException {
 
+		List<FiatDocMake> result = new ArrayList<>();
 
-		String sql = "SELECT * FROM FCA_UT";
-		return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(FiatDocMake.class));
+		String sql = "SELECT * FROM make";
 
+		List<FiatDocMake> fiatDocMakes = jdbcTemplate.query(sql, new FiatRowMapper());
+
+		return fiatDocMakes;
 	}
+
 
 	public boolean insertFiatMode(FiatDocMake fiatDocMake) throws SQLException {
 
@@ -43,14 +50,14 @@ public class FiatRepository {
 
 	}
 
-	public void updateFiatMode(FiatDocMake fiatDocMake) throws SQLException {
+	public void updateFiatMode(FiatDocMake fiatDocMake) {
 
 		String sql = "UPDATE make SET ID = ?, description = ?,  WHERE ID = ?";
 
 
 	}
 
-	public void deleteFiatMode(String brandCode) throws SQLException {
+	public void deleteFiatMode(String brandCode) {
 
 		String sql = "DELETE FROM make WHERE brandCode = ?";
 
