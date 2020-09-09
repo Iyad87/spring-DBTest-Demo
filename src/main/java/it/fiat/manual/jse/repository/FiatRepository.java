@@ -31,7 +31,7 @@ public class FiatRepository {
 	public List<FiatDocMake> getAll() throws SQLException {
 
 
-		String sql = "SELECT * FROM make";
+		String sql = "SELECT * FROM FCA_UT";
 		return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(FiatDocMake.class));
 
 	}
