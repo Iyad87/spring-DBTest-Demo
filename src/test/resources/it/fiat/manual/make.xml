@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE dataset SYSTEM "C:\Users\i.altoubah\Desktop\spring-DBTest-Demo\src\test\resources\it\fiat\manual\make.dtd">
 <dataset>
-	<MAKE RT_ID="00" NAME="FIAT                                    " ID="1"/>
+	<MAKE RT_ID="00" NAME="FIAT" ID="1"/>
 	<MAKE RT_ID="70" NAME="LANCIA                                  " ID="3"/>
 	<MAKE RT_ID="83" NAME="ALFA                                    " ID="2"/>
 </dataset>
