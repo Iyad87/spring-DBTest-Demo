@@ -10,7 +10,7 @@ import it.fiat.manual.jse.model.FiatDocMake;
 public class FiatRowMapper implements RowMapper<FiatDocMake> {
 
 	@Override
-	public FiatDocMake mapRow(ResultSet rs, int rowNum) throws SQLException{
+	public FiatDocMake mapRow(ResultSet rs, int rowNum) throws SQLException {
 		FiatDocMake fiatDocMake = new FiatDocMake();
 		fiatDocMake.setBrandCode(rs.getString("ID"));
 		fiatDocMake.setDescription(rs.getString("NAMe"));
