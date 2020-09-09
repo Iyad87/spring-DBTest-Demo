@@ -5,13 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.*;
-import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Repository;
 
+import it.fiat.manual.jse.mapper.FiatRowMapper;
 import it.fiat.manual.jse.model.FiatDocMake;
 
 @Repository
@@ -22,7 +20,7 @@ public class FiatMakeRepository {
 	private JdbcTemplate jdbcTemplate;
 
 
-	public void saveFiatMake(FiatDocMake fiatDocMake) throws SQLException {
+	public void saveFiatMake(FiatDocMake fiatDocMake) {
 
 
 		String sql = "INSERT INTO  make (brandCode, description) VALUES (?,?)";
@@ -31,7 +29,7 @@ public class FiatMakeRepository {
 		jdbcTemplate.update(sql, params);
 	}
 
-	public List<FiatDocMake> getAll() throws SQLException {
+	public List<FiatDocMake> getAll()  {
 
 		List<FiatDocMake> result = new ArrayList<>();
 
@@ -43,7 +41,7 @@ public class FiatMakeRepository {
 	}
 
 
-	public void insertFiatMode(FiatDocMake fiatDocMake) throws SQLException {
+	public void insertFiatMode(FiatDocMake fiatDocMake)  {
 
 		String sql = "INSERT INTO make ( ID, NAME , RT_ID) VALUES (?, ? ,?)";
 		jdbcTemplate.update(sql, new Object[]{fiatDocMake.getBrandCode(), fiatDocMake.getDescription()});

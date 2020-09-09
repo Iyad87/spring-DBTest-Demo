@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE dataset SYSTEM "C:\Users\i.altoubah\Desktop\spring-DBTest-Demo\src\test\resources\it\fiat\manual\make.dtd">
+<!DOCTYPE dataset SYSTEM "C:\Users\i.altoubah\Desktop\spring-DBTest-Demo\src\test\resources\it\fiat\manual\jse\repository\make.dtd">
 <dataset>
 	<MAKE RT_ID="00" NAME="FIAT" ID="1"/>
 	<MAKE RT_ID="70" NAME="LANCIA                                  " ID="3"/>

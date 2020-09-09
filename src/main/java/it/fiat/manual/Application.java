@@ -32,6 +32,9 @@ public class Application implements CommandLineRunner {
 
 		List<FiatDocMake> fiatDocMakes = fiatMakeRepository.getAll();
 		LOG.info(fiatDocMakes.toString());
+		FiatDocMake fiat = new FiatDocMake ("22","FIAT2TEST");
+		fiatMakeRepository.insertFiatMode(fiat);
+//		fiatMakeRepository.deleteFiatMode("55");
 	}
 
 }

@@ -1,4 +1,4 @@
-package it.fiat.manual.jse.repository;
+package it.fiat.manual.jse.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
