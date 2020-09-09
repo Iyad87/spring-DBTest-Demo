@@ -1,4 +1,4 @@
-package it.fiat.manual.jse.jpa;
+package it.fiat.manual.jse.model;
 
 public class FiatDocMake {
 

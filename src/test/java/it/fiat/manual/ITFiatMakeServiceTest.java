@@ -13,8 +13,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 
-import it.fiat.manual.jse.jpa.FiatDao;
-import it.fiat.manual.jse.jpa.FiatDocMake;
+import it.fiat.manual.jse.repository.FiatRepository;
+import it.fiat.manual.jse.model.FiatDocMake;
 import static org.junit.Assert.assertEquals;
 
 //import it.fiat.manual.jse.jpa.DBConnection;
@@ -30,13 +30,13 @@ public class ITFiatMakeServiceTest {
 
 
 	@Autowired
-	private FiatDao fiatDao;
+	private FiatRepository fiatRepository;
 
 	@Test
 	@DatabaseSetup("make.xml")
 	public void testFind() throws Exception {
 
-		List<FiatDocMake> aList = fiatDao.getAll();
+		List<FiatDocMake> aList = fiatRepository.getAll();
 		assertEquals(3, aList.size());
 		assertEquals("FIAT                                    ", aList.get(0).getDescription());
 	}
