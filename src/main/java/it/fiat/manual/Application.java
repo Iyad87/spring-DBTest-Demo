@@ -30,7 +30,8 @@ public class Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		List<FiatDocMake> fiatDocMakes = fiatMakeRepository.getAll();
+		List<FiatDocMake> fiatDocMakes = fiatMakeRepository.findAll();
+		System.out.println(fiatDocMakes.toString());
 
 	}
 }

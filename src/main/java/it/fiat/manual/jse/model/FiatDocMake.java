@@ -1,9 +1,17 @@
 package it.fiat.manual.jse.model;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "make")
 public class FiatDocMake {
 
+	@Id
+	@Column(name = "ID")
 	private String brandCode;
 
+	@Column(name = "NAME")
 	private String description;
 
 	public FiatDocMake(String brandCode, String description) {
@@ -11,7 +19,8 @@ public class FiatDocMake {
 		this.description = description;
 	}
 
-	public FiatDocMake() {}
+	public FiatDocMake() {
+	}
 
 	// Property accessors
 

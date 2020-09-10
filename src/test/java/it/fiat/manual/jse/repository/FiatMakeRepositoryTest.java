@@ -30,11 +30,16 @@ public class FiatMakeRepositoryTest {
 
 	@Test
 	@DatabaseSetup("make.xml")
-	public void testFind() throws Exception {
+	public void testFind(){
 
-		List<FiatDocMake> aList = fiatRepository.getAll();
+		List<FiatDocMake> aList = fiatRepository.findAll();
 		assertEquals(3, aList.size());
-		assertEquals("FIAT                                    ", aList.get(0).getDescription());
+    	assertEquals("FIAT                                    ", aList.get(0).getDescription());
+		for( FiatDocMake fiatDocMake: aList ){
+
+			System.out.println(fiatDocMake.toString());
+
+		}
 	}
 
 }
