@@ -1,12 +1,12 @@
 package it.fiat.manual.jse.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 import org.springframework.stereotype.Repository;
-
 import it.fiat.manual.jse.model.FiatDocMake;
 
 @Repository
-public interface FiatMakeRepository  extends JpaRepository<FiatDocMake,Long> {
+public interface FiatMakeDao {
 
 
+    List<FiatDocMake> getAll();
 }

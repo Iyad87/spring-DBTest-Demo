@@ -23,16 +23,16 @@ import static org.junit.Assert.assertEquals;
 		SpringBootDependencyInjectionTestExecutionListener.class,
 		DbUnitTestExecutionListener.class
 })
-public class FiatMakeRepositoryTest {
+public class FiatMakeDaoTest {
 
 	@Autowired
-	private FiatMakeRepository fiatRepository;
+	private FiatMakeDao fiatRepository;
 
 	@Test
 	@DatabaseSetup("make.xml")
 	public void testFind(){
 
-		List<FiatDocMake> aList = fiatRepository.findAll();
+		List<FiatDocMake> aList = fiatRepository.getAll();
 		assertEquals(3, aList.size());
     	assertEquals("FIAT                                    ", aList.get(0).getDescription());
 		for( FiatDocMake fiatDocMake: aList ){
