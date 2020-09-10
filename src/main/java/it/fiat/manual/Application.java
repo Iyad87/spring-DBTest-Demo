@@ -32,7 +32,18 @@ public class Application implements CommandLineRunner {
 
 
 		List<FiatDocMake> fiatDocMakes = fiatMakeDao.getAll();
-	    LOG.info(fiatDocMakes.toString());
+	    FiatDocMake fm = new FiatDocMake();
+	    fm.setBrandCode("4");
+	    fm.setDescription("FiatTest");
+
+//	     //fiatMakeDao.insert(fm);
+//		//fiatMakeDao.delete(fm.getBrandCode());
+//		FiatDocMake fm1 = new FiatDocMake("6","FiatTest3");
+//
+//		fiatMakeDao.update(fm.getBrandCode(), fm1.getDescription());
+
+		LOG.info(fiatDocMakes.toString());
+
 
 	}
 }
