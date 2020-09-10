@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@MapperScan("it.fiat.manual.jse")
+@MapperScan("it.fiat.manual.jse.repository")
 
 public class DbConfig {
 

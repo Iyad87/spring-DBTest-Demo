@@ -15,4 +15,17 @@
         SELECT * FROM MAKE;
     </select>
 
+	<select id="delete" resultMap="makeMap">
+        DELETE * FROM MAKE WHERE brandCode = fiatDocmake.brandCode;
+
+    </select>
+
+	<select id="update" resultMap="makeMap">
+        UPDATE MAKE  SET ID = fiatDocmake.brandCode , NAME = fiatDocMake.desription; WHERE VALUE (?,?)
+    </select>
+
+	<select id="insert" resultMap="makeMap">
+        INSERT INTO MAKE (fiatDocmake.brandCode, fiatDocMake.desription) VALUES (?,?);
+    </select>
+
 </mapper>
